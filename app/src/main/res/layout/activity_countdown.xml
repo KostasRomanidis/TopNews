@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:weightSum="1">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="4dp"
+            android:background="@color/colorPrimary"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+        <Button
+            android:id="@+id/set_time"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="@string/set_time"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"
+            android:drawableStart="@drawable/ic_add_alarm_black_24px"
+            android:drawableLeft="@drawable/ic_add_alarm_black_24px" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progressDrawable="@drawable/progress_bar"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/time_display"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/time_remaining"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textSize="50sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/start_countdown_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@string/start_button"
+            android:layout_weight="0.1"/>
+
+        <LinearLayout
+            android:id="@+id/second_row"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.1">
+
+            <Button
+                android:id="@+id/pause_countdown_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pause_button"
+                android:layout_weight="0.5"/>
+
+            <Button
+                android:id="@+id/resume_countdown_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/resume_button"
+                android:layout_weight="0.5"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/third_row"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.1"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/stop_countdown_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stop_button"
+                android:layout_weight="0.5"/>
+
+            <Button
+                android:id="@+id/reset_countdown_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reset_button"
+                android:layout_weight="0.5"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
