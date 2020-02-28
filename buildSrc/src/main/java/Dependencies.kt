@@ -16,8 +16,8 @@ object Versions {
 
     const val appcompat = "1.1.0"
     const val coreKtx = "1.1.0"
-    const val material = "1.1.0-alpha09"
-    const val recyclerview = "1.1.0-beta04"
+    const val material = "1.1.0"
+    const val recyclerview = "1.1.0"
 }
 
 object Libraries {
