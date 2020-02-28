@@ -1,21 +1,14 @@
 package com.kroman.hiitimer;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.view.LayoutInflaterCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.NumberPicker;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.DialogFragment;
 
 import com.kroman.hiitimer.databinding.FragmentSetTimeBinding;
 
@@ -33,6 +26,7 @@ public class SetCountDownTimeFragment extends DialogFragment {
 
     public interface SetCountDownTimeListener {
         void onDialogPositiveClick(DialogFragment dialogFragment, int minutes, int seconds);
+
         void onDialogNegativeClick(DialogFragment dialogFragment);
     }
 
@@ -57,16 +51,16 @@ public class SetCountDownTimeFragment extends DialogFragment {
 
         builder.setView(fragmentSetTimeBinding.getRoot())
                 .setTitle(R.string.dialog_title)
-                .setPositiveButton(R.string.set_time, (dialog, id)  -> {
-                        int minutes = fragmentSetTimeBinding.minutesPicker.getValue();
-                        int seconds = fragmentSetTimeBinding.secondsPicker.getValue();
-                        mListener.onDialogPositiveClick(SetCountDownTimeFragment.this, minutes, seconds);
-                    }
+                .setPositiveButton(R.string.set_time, (dialog, id) -> {
+                            int minutes = fragmentSetTimeBinding.minutesPicker.getValue();
+                            int seconds = fragmentSetTimeBinding.secondsPicker.getValue();
+                            mListener.onDialogPositiveClick(SetCountDownTimeFragment.this, minutes, seconds);
+                        }
                 )
                 .setNegativeButton(R.string.cancel, (dialog, id) -> {
-                        SetCountDownTimeFragment.this.getDialog().cancel();
-                        mListener.onDialogNegativeClick(SetCountDownTimeFragment.this);
-                    }
+                            SetCountDownTimeFragment.this.getDialog().cancel();
+                            mListener.onDialogNegativeClick(SetCountDownTimeFragment.this);
+                        }
                 );
         return builder.create();
     }
