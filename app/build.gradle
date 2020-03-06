@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion Versions.compileSdk
@@ -48,6 +50,47 @@ dependencies {
 
     implementation Libraries.kotlin
     implementation Libraries.appcompat
+    implementation Libraries.recyclerView
+    implementation Libraries.material
+    implementation Libraries.coreKtx
+    implementation Libraries.constraintLayout
+    implementation Libraries.gson
+    implementation Libraries.lifecycle
+    kapt Libraries.lifecycleKapt
+    // Coroutines
+    implementation Libraries.coroutinesCore
+    implementation Libraries.coroutinesAndroid
+    // DI
+    implementation Libraries.koin
+    implementation Libraries.koinViewModel
+    // Networking
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitConverter
+    implementation Libraries.okHttpLogging
+    // Room
+    implementation Libraries.room
+    implementation Libraries.roomKtx
+    kapt Libraries.roomCompiler
+    // Navigation
+    implementation Libraries.navigation
+    implementation Libraries.navigationUI
+    // Stetho
+    implementation Libraries.stetho
+    // Timber
+    implementation Libraries.timber
+
+    implementation Libraries.swipeRefreshLayout
+    // Firebase
+    implementation Libraries.firebaseAnalytics
+    implementation Libraries.firebaseCrashlytics
+
+    // Testing
+    testImplementation TestLibraries.junit
+    testImplementation TestLibraries.koinTest
+    androidTestImplementation TestLibraries.runner
+    androidTestImplementation TestLibraries.espressoCore
+
+    implementation project(':domain')
 
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
