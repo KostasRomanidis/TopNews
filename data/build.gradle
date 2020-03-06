@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            versionNameSuffix '-debug'
+            buildConfigField 'String', "BASE_URL", "\"https://infinite-shelf-52159.herokuapp.com\""
+        }
+
+        release {
+            debuggable false
+            minifyEnabled true
+            zipAlignEnabled true
+            buildConfigField 'String', "BASE_URL", "\"http://localhost:3000\""
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Libraries.kotlin
+    implementation Libraries.appcompat
+    implementation Libraries.coreKtx
+    implementation Libraries.gson
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitConverter
+    implementation Libraries.coroutinesCore
+    implementation Libraries.coroutinesAndroid
+    implementation Libraries.timber
+    implementation Libraries.room
+    kapt Libraries.roomCompiler
+    implementation Libraries.roomKtx
+
+    // Test Libraries
+    testImplementation TestLibraries.junit
+    androidTestImplementation TestLibraries.runner
+    androidTestImplementation TestLibraries.espressoCore
+    testImplementation TestLibraries.room
+
+    implementation project(":domain")
+}
+
