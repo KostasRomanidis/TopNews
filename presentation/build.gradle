@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
-apply plugin: 'io.fabric'
+//apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion Versions.compileSdk
@@ -81,8 +81,8 @@ dependencies {
 
     implementation Libraries.swipeRefreshLayout
     // Firebase
-    implementation Libraries.firebaseAnalytics
-    implementation Libraries.firebaseCrashlytics
+//    implementation Libraries.firebaseAnalytics
+//    implementation Libraries.firebaseCrashlytics
 
     // Testing
     testImplementation TestLibraries.junit
