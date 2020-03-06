@@ -1,9 +1,12 @@
 apply plugin: 'kotlin'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Libraries.kotlin
+    implementation Libraries.coroutinesCore
+
+    testImplementation TestLibraries.junit
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
