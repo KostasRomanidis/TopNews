@@ -27,7 +27,7 @@ android {
             debuggable true
             minifyEnabled false
             versionNameSuffix '-debug'
-            buildConfigField 'String', "NEWS_API_KEY", newsApiKey
+            buildConfigField 'String', "NEWS_API_KEY", newsApiKey.toString()
             buildConfigField 'String', "BASE_URL", "\"https://newsapi.org/v2\""
         }
 
@@ -35,7 +35,7 @@ android {
             debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', "NEWS_API_KEY", newsApiKey
+            buildConfigField 'String', "NEWS_API_KEY", newsApiKey.toString()
             buildConfigField 'String', "BASE_URL", "\"https://newsapi.org/v2\""
         }
     }
@@ -55,8 +55,9 @@ android {
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        buildConfig = true
+        dataBinding = true
     }
 }
 

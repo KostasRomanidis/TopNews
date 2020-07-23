@@ -1,6 +1,7 @@
 package com.kroman.presentation.network
 
-import com.kroman.topnews.BuildConfig
+import com.kroman.data.api.NewsApi
+import com.kroman.presentation.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -29,3 +30,5 @@ private fun retrofitClient(httpClient: OkHttpClient): Retrofit =
         .client(httpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
+val newsApi: NewsApi = createNetworkClient().create(NewsApi::class.java)
