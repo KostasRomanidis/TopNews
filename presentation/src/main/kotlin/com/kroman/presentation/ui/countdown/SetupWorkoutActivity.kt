@@ -1,9 +1,9 @@
-package com.kroman.topnews
+package com.kroman.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.kroman.topnews.databinding.ActivitySetupWorkoutBinding
+import com.kroman.presentation.databinding.ActivitySetupWorkoutBinding
 
 class SetupWorkoutActivity : AppCompatActivity() {
     var workoutName: String = ""

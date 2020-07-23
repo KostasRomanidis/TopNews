@@ -1,4 +1,4 @@
-package com.kroman.topnews
+package com.kroman.presentation
 
 import android.os.Handler
 import android.os.Message

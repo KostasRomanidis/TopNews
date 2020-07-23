@@ -1,4 +1,4 @@
-package com.kroman.topnews
+package com.kroman.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.databinding.DataBindingUtil
-import com.kroman.topnews.databinding.ActivityCountdownBinding
+import com.kroman.presentation.databinding.ActivityCountdownBinding
 
 class CountDownActivity : AppCompatActivity(), SetCountDownTimeListener {
 

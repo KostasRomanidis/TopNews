@@ -1,5 +1,5 @@
 object ApplicationId {
-    const val id = "com.kroman.hiitimer"
+    const val id = "com.kroman.topnews"
 }
 
 object Releases {

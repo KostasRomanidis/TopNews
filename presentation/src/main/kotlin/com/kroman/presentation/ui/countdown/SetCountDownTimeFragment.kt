@@ -1,4 +1,4 @@
-package com.kroman.topnews
+package com.kroman.presentation
 
 import android.app.Dialog
 import android.content.Context
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.databinding.DataBindingUtil
-import com.kroman.topnews.databinding.FragmentSetTimeBinding
+import com.kroman.presentation.databinding.FragmentSetTimeBinding
 
 class SetCountDownTimeFragment : AppCompatDialogFragment() {
     private val pickerMinValue: Int = 0

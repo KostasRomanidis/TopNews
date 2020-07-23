@@ -1,10 +1,10 @@
-package com.kroman.topnews.ui.main
+package com.kroman.presentation.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.kroman.topnews.R
-import com.kroman.topnews.databinding.ActivityMainBinding
+import com.kroman.presentation.R
+import com.kroman.presentation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

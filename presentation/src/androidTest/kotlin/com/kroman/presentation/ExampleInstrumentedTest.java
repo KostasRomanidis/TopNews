@@ -1,4 +1,4 @@
-package com.kroman.topnews;
+package com.kroman.presentation;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
