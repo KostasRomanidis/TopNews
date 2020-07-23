@@ -93,6 +93,7 @@ dependencies {
     implementation Libraries.timber
 
     implementation Libraries.swipeRefreshLayout
+
     // Firebase
 //    implementation Libraries.firebaseAnalytics
 //    implementation Libraries.firebaseCrashlytics

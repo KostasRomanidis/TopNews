@@ -8,31 +8,31 @@ object Releases {
 }
 
 object Versions {
-    const val kotlin = "1.3.50"
+    const val kotlin = "1.3.72"
 
     const val compileSdk = 29
     const val minSdk = 21
     const val targetSdk = 29
 
     const val appcompat = "1.1.0"
-    const val coreKtx = "1.2.0"
+    const val coreKtx = "1.3.0"
     const val material = "1.1.0"
     const val recyclerview = "1.1.0"
     const val constraintlayout = "1.1.3"
-    const val koinAndroid = "2.0.1"
-    const val koinViewModel = "2.0.1"
-    const val retrofit = "2.7.2"
-    const val okhttpLogging = "4.4.0"
+    const val koinAndroid = "2.1.5"
+    const val koinViewModel = "2.1.5"
+    const val retrofit = "2.9.0"
+    const val okhttpLogging = "4.8.0"
     const val gson = "2.8.6"
-    const val navigation = "2.3.0-alpha03"
+    const val navigation = "2.3.0"
     const val lifecycle = "2.2.0"
     const val stetho = "1.5.1"
-    const val safeArgs = "2.3.0-alpha03"
-    const val coroutines = "1.3.4"
+    const val safeArgs = "2.3.0"
+    const val coroutines = "1.3.8"
     const val timber = "4.7.1"
-    const val room = "2.2.4"
-    const val fragment = "1.2.2"
-    const val swipeRefreshLayout = "1.0.0"
+    const val room = "2.2.5"
+    const val fragment = "1.2.5"
+    const val swipeRefreshLayout = "1.1.0"
     const val googlePlayServices = "4.3.3"
     const val fabric = "1.31.2"
     const val firebaseAnalytics = "17.2.3"
