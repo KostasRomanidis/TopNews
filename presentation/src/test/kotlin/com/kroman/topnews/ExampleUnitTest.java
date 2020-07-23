@@ -1,4 +1,4 @@
-package com.kroman.hiitimer;
+package com.kroman.topnews;
 
 import org.junit.Test;
 

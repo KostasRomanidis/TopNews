@@ -5,6 +5,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 //apply plugin: 'io.fabric'
 
+def keysPropertiesFile = rootProject.file("keys.properties")
+def keysProperties = new Properties()
+keysProperties.load(new FileInputStream(keysPropertiesFile))
+def newsApiKey = keysProperties['NEWS_API_KEY']
+
 android {
     compileSdkVersion Versions.compileSdk
     defaultConfig {
@@ -18,10 +23,18 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            versionNameSuffix '-debug'
+            buildConfigField "String", "NEWS_API_KEY", newsApiKey
+        }
+
         release {
             debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "NEWS_API_KEY", newsApiKey
         }
     }
 
@@ -91,6 +104,7 @@ dependencies {
     androidTestImplementation TestLibraries.espressoCore
 
     implementation project(':domain')
+    implementation project(':data')
 
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
