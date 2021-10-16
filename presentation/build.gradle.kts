@@ -1,4 +1,5 @@
-import java.lang.System.load
+import com.android.build.api.dsl.Lint
+import com.android.build.api.dsl.LintOptions
 
 plugins {
     id("com.android.application")
@@ -7,12 +8,6 @@ plugins {
     kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
 }
-
-val properties = File(rootDir, "keys.properties").inputStream().use {
-    java.util.Properties().apply { load(it) }
-}
-val gNewsApiKey = properties.getValue("GNEWS_API_KEY") as String
-
 
 android {
     compileSdk = Versions.COMPILE_SDK
@@ -31,14 +26,14 @@ android {
             versionNameSuffix = "-debug"
             isMinifyEnabled = false
             isDebuggable = true
-            buildConfigField("String", "GNEWS_API_KEY", gNewsApiKey)
+            resValue("string", "gnews_api_key", "<PlaceYourKeyHere>")
             buildConfigField("String", "BASE_URL", "\"https://gnews.io/api/v4\"")
         }
 
         getByName("release") {
             isMinifyEnabled = true
             isDebuggable = false
-            buildConfigField("String", "NEWS_API_KEY", gNewsApiKey)
+            resValue("string", "gnews_api_key", "<PlaceYourKeyHere>")
             buildConfigField("String", "BASE_URL", "\"https://gnews.io/api/v4\"")
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
@@ -66,13 +61,6 @@ android {
         }
     }
 
-    lintOptions {
-        // Eliminates UnusedResources false positives for resources used in DataBinding layouts
-        isCheckGeneratedSources = true
-        // Running lint over the debug variant is enough
-        isCheckReleaseBuilds = false
-    }
-
     buildFeatures {
         buildConfig = true
         dataBinding = true
@@ -89,7 +77,9 @@ dependencies {
     implementation(Libs.CORE_KTX)
     implementation(Libs.CONSTRAINT_LAYOUT)
     implementation(Libs.GSON)
-    implementation(Libs.LIFECYCLE)
+    implementation(Libs.LIFECYLCE_VIEWMODEL)
+    implementation(Libs.LIFECYLCE_LIVEDATA)
+    implementation(Libs.LIFECYCLE_VIEWMODEL_SAVEDSTATE)
     kapt(Libs.LIFECYCLE_KAPT)
 
     // Coroutines

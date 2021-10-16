@@ -23,12 +23,15 @@ object Libs {
 
     const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
     const val LIFECYCLE = "androidx.lifecycle:lifecycle-extensions:${Versions.LIFECYCLE}"
+    const val LIFECYLCE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
+    const val LIFECYLCE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
+    const val LIFECYCLE_VIEWMODEL_SAVEDSTATE = "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.LIFECYCLE}"
     const val LIFECYCLE_KAPT = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
     const val LIFECYCLE_LIVE_DATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
 
     // Dependency Injection
-    const val KOIN = "org.koin:koin-android:${Versions.KOIN_VERSION}"
-    const val KOIN_VIEWMODEL = "org.koin:koin-android-viewmodel:${Versions.KOIN_VERSION}"
+    const val KOIN = "io.insert-koin:koin-android:${Versions.KOIN_VERSION}"
+    const val KOIN_VIEWMODEL = "io.insert-koin:koin-android-viewmodel:${Versions.KOIN_VERSION}"
 
     // Room
     const val ROOM = "androidx.room:room-runtime:${Versions.ROOM}"
