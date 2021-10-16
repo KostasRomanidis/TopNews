@@ -27,8 +27,8 @@ object Libs {
     const val LIFECYCLE_LIVE_DATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
 
     // Dependency Injection
-    const val KOIN = "org.koin:koin-android:${Versions.KOIN_ANDROID}"
-    const val KOIN_VIEWMODEL = "org.koin:koin-android-viewmodel:${Versions.KOIN_VIEWMODEL}"
+    const val KOIN = "org.koin:koin-android:${Versions.KOIN_VERSION}"
+    const val KOIN_VIEWMODEL = "org.koin:koin-android-viewmodel:${Versions.KOIN_VERSION}"
 
     // Room
     const val ROOM = "androidx.room:room-runtime:${Versions.ROOM}"
@@ -61,6 +61,6 @@ object Libs {
     const val RUNNER = "androidx.test:runner:${Versions.RUNNER}"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_CORE}"
     const val ROOM_TEST = "androidx.room:room-testing:${Versions.ROOM}"
-    const val KOIN_TEST = "org.koin:koin-test:${Versions.KOIN_ANDROID}"
+    const val KOIN_TEST = "org.koin:koin-test:${Versions.KOIN_VERSION}"
     const val MOCKIT_KOTLIN = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO_KOTLIN}"
 }
