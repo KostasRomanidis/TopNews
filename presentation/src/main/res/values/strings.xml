@@ -1,19 +1,4 @@
 <resources>
     <string name="app_name">Top News</string>
-    <string name="start_button">Start</string>
-    <string name="stop_button">Stop</string>
-    <string name="pause_button">Pause</string>
-    <string name="resume_button">Resume</string>
-    <string name="reset_button">Reset</string>
-    <string name="chronometer_toolbar">Chronometer</string>
-    <string name="action_countdown">Chronometer</string>
-    <string name="time_remaining">00:00</string>
-    <string name="countdown_completed">Done!</string>
-    <string name="set_time">Set Time</string>
-    <string name="cancel">Cancel</string>
-    <string name="dialog_title">CountDown Time</string>
-    <string name="minutes_label">Minutes</string>
-    <string name="seconds_label">Seconds</string>
-    <string name="setup_workout_title">Set Up Workout</string>
-    <string name="exercise_name_placeholder">Exercise name</string>
+    <string name="chronometer_toolbar">Add Category</string>
 </resources>

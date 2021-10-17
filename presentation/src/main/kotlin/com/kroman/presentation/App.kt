@@ -1,7 +1,6 @@
 package com.kroman.presentation
 
 import android.app.Application
-import com.facebook.stetho.Stetho
 import com.kroman.presentation.di.appModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -14,7 +13,6 @@ class App : Application() {
         super.onCreate()
 
         if (BuildConfig.DEBUG) {
-            Stetho.initializeWithDefaults(this)
             Timber.plant(Timber.DebugTree())
         }
 
