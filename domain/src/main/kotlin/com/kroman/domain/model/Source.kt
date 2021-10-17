@@ -1,3 +1,5 @@
 package com.kroman.domain.model
 
-data class Source(val id: String, val name: String)
+data class Source(
+    val name: String, val url: String
+)

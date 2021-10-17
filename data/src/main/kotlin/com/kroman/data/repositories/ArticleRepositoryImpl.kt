@@ -8,17 +8,14 @@ import com.kroman.domain.repositories.NewsRepository
 import timber.log.Timber
 
 class ArticleRepositoryImpl(val newsApi: NewsApi) : NewsRepository {
-    override suspend fun getLatestArticles(
-        q: String,
-        from: String,
-        to: String,
-        sortBy: String,
-        apiKey: String
+    override suspend fun getTopHeadlines(
+        lang: String,
+        token: String
     ): Result<List<Article>> {
         Timber.d("loading latest articles from news api, for the last 24hours")
         return when (val response =
-            request { newsApi.latestArticles(q, from, to, sortBy, apiKey) }) {
-            is Result.Success -> Result.success(response.data.mapToDomain())
+            request { newsApi.topHeadelines(lang, token) }) {
+            is Result.Success -> Result.success(response.data.articles.mapToDomain())
             is Result.Error -> Result.error(response.exception)
         }
     }

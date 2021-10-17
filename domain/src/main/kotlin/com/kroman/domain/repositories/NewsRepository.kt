@@ -4,10 +4,8 @@ import com.kroman.domain.model.Article
 import com.kroman.domain.model.Result
 
 interface NewsRepository : BaseRepository {
-    suspend fun getLatestArticles(
-        q: String, from: String,
-        to: String,
-        sortBy: String,
-        apiKey: String
+    suspend fun getTopHeadlines(
+        lang: String,
+        token: String
     ): Result<List<Article>>
 }

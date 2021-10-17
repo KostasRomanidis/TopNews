@@ -3,25 +3,23 @@ package com.kroman.data.model
 import com.kroman.domain.model.Article
 
 data class ArticleEntity(
-    val source: SourceEntity,
-    val author: String,
     val title: String,
     val description: String,
+    val content: String,
     val url: String,
-    val urlToImage: String,
+    val image: String,
     val publishedAt: String,
-    val content: String
+    val source: SourceEntity,
 )
 
 fun ArticleEntity.mapToDomain(): Article = Article(
-    source = source.mapToDomain(),
-    author = author,
     title = title,
     description = description,
+    content = content,
     url = url,
-    urlToImage = urlToImage,
+    image = image,
     publishedAt = publishedAt,
-    content = content
+    source = source.mapToDomain()
 )
 
 fun List<ArticleEntity>.mapToDomain(): List<Article> = map { it.mapToDomain() }

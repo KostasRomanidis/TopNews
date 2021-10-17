@@ -7,18 +7,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 
-class ArticlesUseCases(private val articleRepository: NewsRepository) {
+class TopHeadlinesUseCases(private val articleRepository: NewsRepository) {
 
     suspend fun loadLatestArticles(
-        q: String,
-        from: String,
-        to: String,
-        sortBy: String,
-        apiKey: String
+        lang: String,
+        token: String
     ): Result<List<Article>> =
         coroutineScope {
             withContext(Dispatchers.IO) {
-                articleRepository.getLatestArticles(q, from, to, sortBy, apiKey)
+                articleRepository.getTopHeadlines(lang = lang, token = token)
             }
         }
 }

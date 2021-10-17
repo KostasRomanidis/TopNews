@@ -1,8 +1,8 @@
 package com.kroman.presentation.di
 
-import com.kroman.domain.usecases.ArticlesUseCases
+import com.kroman.domain.usecases.TopHeadlinesUseCases
 import org.koin.dsl.module
 
 val useCasesModule = module {
-    factory { ArticlesUseCases(articleRepository = get()) }
+    factory { TopHeadlinesUseCases(articleRepository = get()) }
 }
