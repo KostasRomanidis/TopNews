@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -17,13 +18,13 @@ android {
         getByName("debug") {
             isMinifyEnabled = false
             isJniDebuggable = true
-            buildConfigField("String", "BASE_URL", "\"https://gnews.io/api/v4\"")
+            buildConfigField("String", "BASE_URL", "\"https://gnews.io/api/v4/\"")
         }
 
         getByName("release") {
             isMinifyEnabled = true
             isJniDebuggable = false
-            buildConfigField("String", "BASE_URL", "\"https://gnews.io/api/v4\"")
+            buildConfigField("String", "BASE_URL", "\"https://gnews.io/api/v4/\"")
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -61,6 +62,8 @@ dependencies {
     implementation(Libs.ROOM)
     kapt(Libs.ROOM_COMPILER)
     implementation(Libs.ROOM_KTX)
+    implementation(Libs.HILT)
+    kapt(Libs.HILT_COMPILER)
 
     // Test Libraries
     testImplementation(Libs.JUNIT)

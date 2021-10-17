@@ -7,6 +7,7 @@ dependencies {
     implementation(Libs.KOTLIN_PLUGIN)
     implementation(Libs.COROUTINES_CORE)
 
+    implementation("javax.inject:javax.inject:1")
     testImplementation(Libs.JUNIT)
 }
 

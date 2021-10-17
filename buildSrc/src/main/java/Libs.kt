@@ -30,8 +30,8 @@ object Libs {
     const val LIFECYCLE_LIVE_DATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
 
     // Dependency Injection
-    const val KOIN = "io.insert-koin:koin-android:${Versions.KOIN_VERSION}"
-    const val KOIN_VIEWMODEL = "io.insert-koin:koin-android-viewmodel:${Versions.KOIN_VERSION}"
+    const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
+    const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
 
     // Room
     const val ROOM = "androidx.room:room-runtime:${Versions.ROOM}"
@@ -64,6 +64,5 @@ object Libs {
     const val RUNNER = "androidx.test:runner:${Versions.RUNNER}"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_CORE}"
     const val ROOM_TEST = "androidx.room:room-testing:${Versions.ROOM}"
-    const val KOIN_TEST = "org.koin:koin-test:${Versions.KOIN_VERSION}"
     const val MOCKIT_KOTLIN = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO_KOTLIN}"
 }

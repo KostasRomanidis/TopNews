@@ -5,7 +5,6 @@ import com.kroman.domain.model.Result
 
 interface NewsRepository : BaseRepository {
     suspend fun getTopHeadlines(
-        lang: String,
-        token: String
+        lang: String
     ): Result<List<Article>>
 }

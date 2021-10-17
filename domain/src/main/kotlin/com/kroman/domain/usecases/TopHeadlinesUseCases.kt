@@ -6,16 +6,16 @@ import com.kroman.domain.repositories.NewsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class TopHeadlinesUseCases(private val articleRepository: NewsRepository) {
+class TopHeadlinesUseCases @Inject constructor(private val articleRepository: NewsRepository) {
 
     suspend fun loadLatestArticles(
-        lang: String,
-        token: String
+        lang: String
     ): Result<List<Article>> =
         coroutineScope {
             withContext(Dispatchers.IO) {
-                articleRepository.getTopHeadlines(lang = lang, token = token)
+                articleRepository.getTopHeadlines(lang = lang)
             }
         }
 }

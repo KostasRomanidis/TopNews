@@ -7,6 +7,7 @@ plugins {
     kotlin("android.extensions")
     kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -26,15 +27,15 @@ android {
             versionNameSuffix = "-debug"
             isMinifyEnabled = false
             isDebuggable = true
-            resValue("string", "gnews_api_key", "<PlaceYourKeyHere>")
-            buildConfigField("String", "BASE_URL", "\"https://gnews.io/api/v4\"")
+            buildConfigField("String", "GNEWS_API_KEY", "\"b760215e652ac02d3ac079378e9691b5\"")
+            buildConfigField("String", "BASE_URL", "\"https://gnews.io/api/v4/\"")
         }
 
         getByName("release") {
             isMinifyEnabled = true
             isDebuggable = false
-            resValue("string", "gnews_api_key", "<PlaceYourKeyHere>")
-            buildConfigField("String", "BASE_URL", "\"https://gnews.io/api/v4\"")
+            buildConfigField("String", "GNEWS_API_KEY", "\"b760215e652ac02d3ac079378e9691b5\"")
+            buildConfigField("String", "BASE_URL", "\"https://gnews.io/api/v4/\"")
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
@@ -65,6 +66,10 @@ android {
         buildConfig = true
         dataBinding = true
     }
+
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -87,8 +92,8 @@ dependencies {
     implementation(Libs.COROUTINES_ANDROID)
 
     // DI
-    implementation(Libs.KOIN)
-    implementation(Libs.KOIN_VIEWMODEL)
+    implementation(Libs.HILT)
+    kapt(Libs.HILT_COMPILER)
 
     // Networking
     implementation(Libs.RETROFIT)
@@ -111,7 +116,6 @@ dependencies {
 
     // Testing
     testImplementation(Libs.JUNIT)
-    testImplementation(Libs.KOIN_TEST)
     androidTestImplementation(Libs.RUNNER)
     androidTestImplementation(Libs.ESPRESSO_CORE)
 

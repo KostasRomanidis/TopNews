@@ -2,8 +2,16 @@ package com.kroman.presentation.di
 
 import com.kroman.data.repositories.ArticleRepositoryImpl
 import com.kroman.domain.repositories.NewsRepository
-import org.koin.dsl.module
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
 
-val repositoryModule = module {
-    single { ArticleRepositoryImpl(newsApi = get()) as NewsRepository }
+import dagger.hilt.components.SingletonComponent
+
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class RepositoryModule {
+
+    @Binds
+    abstract fun bindArticlesRepository(articleRepositoryImpl: ArticleRepositoryImpl): NewsRepository
 }

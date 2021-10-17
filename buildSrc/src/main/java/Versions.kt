@@ -13,7 +13,7 @@ object Versions {
     const val MATERIAL = "1.4.0"
     const val RECYCLERVIEW = "1.2.1"
     const val CONSTRAINT_LAYOUT = "2.1.1"
-    const val KOIN_VERSION = "3.1.2"
+    const val HILT = "2.38.1"
     const val RETROFIT = "2.9.0"
     const val OKHTTPLOGGING = "4.9.2"
     const val GSON = "2.8.8"
