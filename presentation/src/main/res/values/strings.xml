@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Top News</string>
     <string name="chronometer_toolbar">Add Category</string>
+    <string name="cd_home">Home</string>
+    <string name="title_home">Home</string>
+    <string name="dc_bookmarks">Bookmarks</string>
+    <string name="title_bookmarks">Bookmarks</string>
 </resources>

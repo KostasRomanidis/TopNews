@@ -47,7 +47,7 @@ android {
 
     kotlinOptions {
         val options = this
-        options.jvmTarget = "1.8"
+        options.jvmTarget = "11"
     }
 
     sourceSets {

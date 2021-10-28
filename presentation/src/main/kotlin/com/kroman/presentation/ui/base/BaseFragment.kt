@@ -5,7 +5,7 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 
-class BaseFragment : Fragment() {
+open class BaseFragment : Fragment() {
     open fun showSnackBarMessage(view: View, message: String) {
         Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
     }
