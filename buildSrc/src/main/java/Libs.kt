@@ -59,10 +59,22 @@ object Libs {
     const val FIREBASE_CRASHLYTICS =
         "com.crashlytics.sdk.android:crashlytics:${Versions.FIREBASE_CRASHLYTICS}"
 
+    // Jetpack Compose
+    const val ACTIVTITY_COMPOSE = "androidx.activity:activity-compose:${Versions.ACTIVITY_COMPOSE}"
+    // Compose Material Design
+    const val MATERIAL_COMPOSE = "androidx.compose.material:material:${Versions.COMPOSE_MATERIAL_DESIGN}"
+    // Animations
+    const val ANIMATION_COMPOSE = "androidx.compose.animation:animation:${Versions.ANIMATIONS}"
+    // Tooling support (Previews, etc.)
+    const val UI_TOOLING_COMPOSE = "androidx.compose.ui:ui-tooling:${Versions.UI_TOOLING}"
+    // Integration with ViewModels
+    const val VIEWMODEL_COMPOSE = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.VIEW_MODEL_COMPOSE}"
+
     // TestLibraries
     const val JUNIT = "junit:junit:${Versions.JUNIT}"
     const val RUNNER = "androidx.test:runner:${Versions.RUNNER}"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_CORE}"
     const val ROOM_TEST = "androidx.room:room-testing:${Versions.ROOM}"
     const val MOCKIT_KOTLIN = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO_KOTLIN}"
+    const val UI_TEST_COMPOSE = "androidx.compose.ui:ui-test-junit4:${Versions.COMPOSE_UI_TEST}"
 }

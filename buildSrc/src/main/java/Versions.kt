@@ -30,9 +30,21 @@ object Versions {
     const val FIREBASE_ANALYTICS = "17.2.3"
     const val FIREBASE_CRASHLYTICS = "2.10.1"
 
+    // Jetpack Compose
+    const val ACTIVITY_COMPOSE  = "1.3.1"
+    // Compose Material Design
+    const val COMPOSE_MATERIAL_DESIGN = "1.0.5"
+    // Animations
+    const val ANIMATIONS = "1.0.5"
+    // Tooling support (Previews, etc.)
+    const val UI_TOOLING = "1.0.5"
+    // Integration with ViewModels
+    const val VIEW_MODEL_COMPOSE = "1.0.0-alpha07"
+
     // Test Libraries
     const val JUNIT = "4.12"
     const val RUNNER = "1.2.0"
     const val ESPRESSO_CORE = "3.2.0"
     const val MOCKITO_KOTLIN = "2.2.0"
+    const val COMPOSE_UI_TEST = "1.0.5"
 }

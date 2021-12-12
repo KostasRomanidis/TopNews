@@ -65,6 +65,7 @@ android {
     buildFeatures {
         buildConfig = true
         dataBinding = true
+        compose = true
     }
 
     kapt {
@@ -114,10 +115,23 @@ dependencies {
 
     implementation(Libs.SWIPE_REFRESH_LAYOUT)
 
+    // Jetpack Compose
+    implementation(Libs.ACTIVTITY_COMPOSE)
+    // Compose Material Design
+    implementation(Libs.MATERIAL_COMPOSE)
+    // Animations
+    implementation(Libs.ANIMATION_COMPOSE)
+    // Tooling support (Previews, etc.)
+    implementation(Libs.UI_TOOLING_COMPOSE)
+    // Integration with ViewModels
+    implementation(Libs.VIEWMODEL_COMPOSE)
+
+
     // Testing
     testImplementation(Libs.JUNIT)
     androidTestImplementation(Libs.RUNNER)
     androidTestImplementation(Libs.ESPRESSO_CORE)
+    androidTestImplementation(Libs.UI_TEST_COMPOSE)
 
     implementation(project(":domain"))
     implementation(project(":data"))
