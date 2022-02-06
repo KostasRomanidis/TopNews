@@ -4,9 +4,9 @@ object Versions {
 
     const val KOTLIN_PLUGIN = "1.5.31"
 
-    const val COMPILE_SDK = 30
+    const val COMPILE_SDK = 31
     const val MIN_SDK = 21
-    const val TARGET_SDK = 30
+    const val TARGET_SDK = 31
 
     const val APP_COMPAT = "1.3.1"
     const val CORE_KTX = "1.6.0"
@@ -31,15 +31,18 @@ object Versions {
     const val FIREBASE_CRASHLYTICS = "2.10.1"
 
     // Jetpack Compose
-    const val ACTIVITY_COMPOSE  = "1.3.1"
+    const val COMPOSE_UI = "1.0.5"
+    const val COMPOSE_ACTIVITY  = "1.3.1"
     // Compose Material Design
     const val COMPOSE_MATERIAL_DESIGN = "1.0.5"
     // Animations
-    const val ANIMATIONS = "1.0.5"
+    const val COMPOSE_ANIMATIONS = "1.0.5"
     // Tooling support (Previews, etc.)
-    const val UI_TOOLING = "1.0.5"
+    const val COMPOSE_UI_TOOLING = "1.0.5"
     // Integration with ViewModels
-    const val VIEW_MODEL_COMPOSE = "1.0.0-alpha07"
+    const val COMPOSE_VIEW_MODEL = "1.0.0-alpha07"
+    const val COMPOSE_NAVIGATION = "2.5.0-alpha01"
+    const val ACCOMPANIST = "0.21.4-beta"
 
     // Test Libraries
     const val JUNIT = "4.12"

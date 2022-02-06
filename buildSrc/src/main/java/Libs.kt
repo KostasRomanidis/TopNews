@@ -60,15 +60,26 @@ object Libs {
         "com.crashlytics.sdk.android:crashlytics:${Versions.FIREBASE_CRASHLYTICS}"
 
     // Jetpack Compose
-    const val ACTIVTITY_COMPOSE = "androidx.activity:activity-compose:${Versions.ACTIVITY_COMPOSE}"
+    const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE_UI}"
+    // Tooling Support (Previews etc...)
+    const val COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE_UI_TOOLING}"
+    const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:${Versions.COMPOSE_ACTIVITY}"
     // Compose Material Design
-    const val MATERIAL_COMPOSE = "androidx.compose.material:material:${Versions.COMPOSE_MATERIAL_DESIGN}"
+    const val COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.COMPOSE_MATERIAL_DESIGN}"
+    const val COMPOSE_MATERIAL_ICONS = "androidx.compose.material:material-icons-core:${Versions.COMPOSE_MATERIAL_DESIGN}"
+    const val COMPOSE_MATERIAL_ICONS_EXT = "androidx.compose.material:material-icons-extended:${Versions.COMPOSE_MATERIAL_DESIGN}"
     // Animations
-    const val ANIMATION_COMPOSE = "androidx.compose.animation:animation:${Versions.ANIMATIONS}"
-    // Tooling support (Previews, etc.)
-    const val UI_TOOLING_COMPOSE = "androidx.compose.ui:ui-tooling:${Versions.UI_TOOLING}"
+    const val COMPOSE_ANIMATION = "androidx.compose.animation:animation:${Versions.COMPOSE_ANIMATIONS}"
     // Integration with ViewModels
-    const val VIEWMODEL_COMPOSE = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.VIEW_MODEL_COMPOSE}"
+    const val COMPOSE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.COMPOSE_VIEW_MODEL}"
+    // Navigation Component
+    const val COMPOSE_NAVIGATION = "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION}"
+
+    // Foundation (Border, Background, Box, Image, Scroll, Shapes, Animation, etc...)
+    const val COMPOSE_FOUNDATION = "androidx.compose.foundation:foundation:${Versions.COMPOSE_UI}"
+
+    // Integration with observables
+    const val COMPOSE_LIVE_DATA = "androidx.compose.runtime:runtime-livedata:${Versions.COMPOSE_UI}"
 
     // TestLibraries
     const val JUNIT = "junit:junit:${Versions.JUNIT}"

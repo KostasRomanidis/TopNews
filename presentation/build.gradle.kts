@@ -68,6 +68,10 @@ android {
         compose = true
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.COMPOSE_UI
+    }
+
     kapt {
         correctErrorTypes = true
     }
@@ -116,16 +120,25 @@ dependencies {
     implementation(Libs.SWIPE_REFRESH_LAYOUT)
 
     // Jetpack Compose
-    implementation(Libs.ACTIVTITY_COMPOSE)
+    implementation(Libs.COMPOSE_UI)
+    implementation(Libs.COMPOSE_UI_TOOLING)
+    implementation(Libs.COMPOSE_ACTIVITY)
     // Compose Material Design
-    implementation(Libs.MATERIAL_COMPOSE)
+    implementation(Libs.COMPOSE_MATERIAL)
+    implementation(Libs.COMPOSE_MATERIAL_ICONS)
+    implementation(Libs.COMPOSE_MATERIAL_ICONS_EXT)
     // Animations
-    implementation(Libs.ANIMATION_COMPOSE)
-    // Tooling support (Previews, etc.)
-    implementation(Libs.UI_TOOLING_COMPOSE)
+    implementation(Libs.COMPOSE_ANIMATION)
     // Integration with ViewModels
-    implementation(Libs.VIEWMODEL_COMPOSE)
+    implementation(Libs.COMPOSE_VIEWMODEL)
+    // Navigation Component
+    implementation(Libs.COMPOSE_NAVIGATION)
 
+    // Foundation (Border, Background, Box, Image, Scroll, Shapes, Animation, etc...)
+    implementation(Libs.COMPOSE_FOUNDATION)
+
+    // Integration with observables
+    implementation(Libs.COMPOSE_LIVE_DATA)
 
     // Testing
     testImplementation(Libs.JUNIT)
