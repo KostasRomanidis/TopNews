@@ -31,7 +31,7 @@ object Libs {
 
     // Dependency Injection
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
-    const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
+    const val HILT_COMPILER = "com.google.dagger:hilt-compiler:${Versions.HILT}"
 
     // Room
     const val ROOM = "androidx.room:room-runtime:${Versions.ROOM}"

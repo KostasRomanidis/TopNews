@@ -99,6 +99,8 @@ dependencies {
     // DI
     implementation(Libs.HILT)
     kapt(Libs.HILT_COMPILER)
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
 
     // Networking
     implementation(Libs.RETROFIT)
