@@ -142,6 +142,9 @@ dependencies {
     // Integration with observables
     implementation(Libs.COMPOSE_LIVE_DATA)
 
+    //COil
+    implementation(Libs.COIL)
+
     // Testing
     testImplementation(Libs.JUNIT)
     androidTestImplementation(Libs.RUNNER)

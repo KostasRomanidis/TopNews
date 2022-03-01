@@ -51,6 +51,10 @@ object Libs {
     // Timber
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
 
+    // Coil-Compose
+    const val COIL = "io.coil-kt:coil-compose:${Versions.COIL}"
+
+
     // Firebase
     const val GOOGLE_PLAY_SERVICES = "com.google.gms:google-services:${Versions.GOOGLE_PLAY_SERVICES}"
     const val FABRIC = "io.fabric.tools:gradle:${Versions.FABRIC}"
