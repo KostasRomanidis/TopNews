@@ -5,12 +5,14 @@ import androidx.compose.material.icons.outlined.Bookmark
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.kroman.presentation.ui.bookmarks.BookmarksScreen
 import com.kroman.presentation.ui.home.HomeScreen
+import com.kroman.presentation.ui.home.HomeViewModel
 
 
 // Destinations used in the app
@@ -23,7 +25,8 @@ object TopNewsDestinations {
 fun NavigationGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = TopNewsDestinations.HOME_ROUTE) {
         composable(TopNewsDestinations.HOME_ROUTE) {
-            HomeScreen()
+            val homeViewModel: HomeViewModel = hiltViewModel()
+            HomeScreen(homeViewModel = homeViewModel)
         }
         composable(TopNewsDestinations.BOOKMARKS_ROUTE) {
             BookmarksScreen()
