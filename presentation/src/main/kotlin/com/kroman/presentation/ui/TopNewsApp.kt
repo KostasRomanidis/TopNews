@@ -1,11 +1,16 @@
 package com.kroman.presentation.ui
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.kroman.presentation.theme.Grey100
@@ -19,9 +24,11 @@ fun TopNewsApp() {
     TopNewsTheme {
         val navController = rememberNavController()
 
-        val tabs =  remember { listOf(
-            BottomNavItem.Home,
-            BottomNavItem.Bookmarks)
+        val tabs = remember {
+            listOf(
+                BottomNavItem.Home,
+                BottomNavItem.Bookmarks
+            )
         }
 
         Scaffold(
@@ -31,8 +38,10 @@ fun TopNewsApp() {
             bottomBar = {
                 TopNewsBottomBar(navController = navController, tabs = tabs)
             }
-        ) {
-            NavigationGraph(navController = navController)
+        ) { innerPadding ->
+            Box(modifier = Modifier.padding(innerPadding)) {
+                NavigationGraph(navController = navController)
+            }
         }
     }
 }
@@ -46,7 +55,7 @@ fun TopNewAppBar(navController: NavController) {
         backgroundColor = Grey700,
         contentColor = Grey100,
         elevation = 8.dp
-    ) 
+    )
 }
 
 @Composable
@@ -59,8 +68,8 @@ fun TopNewsBottomBar(navController: NavController, tabs: List<BottomNavItem>) {
         tabs.forEach { tab ->
             BottomNavigationItem(
                 icon = { Icon(tab.icon, null) },
-                label = { Text(tab.title)},
-                selected =  currentRoute == tab.destination,
+                label = { Text(tab.title) },
+                selected = currentRoute == tab.destination,
                 selectedContentColor = Grey100,
                 unselectedContentColor = Grey400,
                 onClick = {

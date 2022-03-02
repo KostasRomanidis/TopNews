@@ -62,6 +62,7 @@ class TopNewsNavigationActions(navController: NavHostController) {
 }
 
 sealed class BottomNavItem(var title: String, var icon: ImageVector, var destination: String) {
-    object Home: BottomNavItem("Home", Icons.Outlined.Home, TopNewsDestinations.HOME_ROUTE)
-    object Bookmarks: BottomNavItem("Bookmark", Icons.Outlined.Bookmark, TopNewsDestinations.BOOKMARKS_ROUTE)
+    object Home : BottomNavItem("Home", Icons.Outlined.Home, TopNewsDestinations.HOME_ROUTE)
+    object Bookmarks :
+        BottomNavItem("Bookmark", Icons.Outlined.Bookmark, TopNewsDestinations.BOOKMARKS_ROUTE)
 }

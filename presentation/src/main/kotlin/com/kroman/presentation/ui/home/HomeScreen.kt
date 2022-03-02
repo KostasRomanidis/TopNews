@@ -11,16 +11,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.StrokeCap.Companion.Square
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberImagePainter
 import com.kroman.presentation.models.ArticleItem
 import com.kroman.presentation.models.SourceItem
@@ -29,16 +26,14 @@ import com.kroman.presentation.models.SourceItem
 fun HomeScreen(homeViewModel: HomeViewModel) {
     homeViewModel.getTopHeadlines()
     val articles by homeViewModel.newsFeed.observeAsState(listOf())
-    Box(modifier = Modifier.padding(start = 5.dp, end = 5.dp)
-    )
-    {
-        ArticleList(articles = articles)
-    }
+    ArticleList(articles = articles)
 }
 
 @Composable
 fun ArticleList(articles: List<ArticleItem>) {
-    LazyColumn(modifier = Modifier.fillMaxWidth()) {
+    LazyColumn(modifier = Modifier
+        .fillMaxWidth()
+        .wrapContentHeight()) {
         items(articles) { article ->
             ArticleCard(article = article) {
             }
@@ -48,34 +43,41 @@ fun ArticleList(articles: List<ArticleItem>) {
 
 @Composable
 fun ArticleCard(article: ArticleItem, onClick: () -> Unit) {
-    Row(verticalAlignment = Alignment.CenterVertically,
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.End,
         modifier = Modifier
-            .padding(5.dp)
             .fillMaxWidth()
             .background(Color.White)
     ) {
+        Spacer(modifier = Modifier.width(5.dp))
         Image(
             painter = rememberImagePainter(article.image),
             contentDescription = null,
-            modifier = Modifier.size(54.dp)
+            modifier = Modifier
+                .height(64.dp)
+                .width(64.dp)
         )
+        Spacer(modifier = Modifier.width(5.dp))
         Column {
-            Text(text = article.title,
+            Text(
+                text = article.title,
                 textAlign = TextAlign.Start,
                 fontSize = 16.sp,
                 color = Color.Black,
                 fontWeight = FontWeight.Normal,
             )
-            Text(text = article.description,
+            Spacer(modifier = Modifier.width(2.dp))
+            Text(
+                text = article.description,
                 textAlign = TextAlign.Start,
                 fontSize = 12.sp,
                 color = Color.Black,
-                fontWeight = FontWeight.Normal
+                fontWeight = FontWeight.Light,
+                fontStyle = FontStyle.Italic
             )
         }
-        Spacer(modifier = Modifier.width(14.dp))
-
+        Spacer(modifier = Modifier.width(5.dp))
     }
 }
 
@@ -91,7 +93,8 @@ fun ArticleCardPreview() {
         publishedAt = "2022-03-01T22:22:00Z",
         source = SourceItem(
             name = "The Telegraph",
-            url = "https://www.telegraph.co.uk")
+            url = "https://www.telegraph.co.uk"
+        )
     )
     ArticleCard(article = article) {
     }

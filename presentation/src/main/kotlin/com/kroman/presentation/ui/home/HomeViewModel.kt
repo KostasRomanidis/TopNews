@@ -16,7 +16,8 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val topHeadlinesUseCases: TopHeadlinesUseCases) : ViewModel() {
+class HomeViewModel @Inject constructor(private val topHeadlinesUseCases: TopHeadlinesUseCases) :
+    ViewModel() {
     private val _newsFeed: MutableLiveData<List<ArticleItem>> = MutableLiveData()
     val newsFeed: LiveData<List<ArticleItem>> = _newsFeed
 
