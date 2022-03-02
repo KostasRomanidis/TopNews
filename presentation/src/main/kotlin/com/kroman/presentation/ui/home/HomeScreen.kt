@@ -31,9 +31,13 @@ fun HomeScreen(homeViewModel: HomeViewModel) {
 
 @Composable
 fun ArticleList(articles: List<ArticleItem>) {
-    LazyColumn(modifier = Modifier
-        .fillMaxWidth()
-        .wrapContentHeight()) {
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 4.dp, bottom = 4.dp)
+            .wrapContentHeight(),
+        verticalArrangement = Arrangement.spacedBy(4.dp)
+    ) {
         items(articles) { article ->
             ArticleCard(article = article) {
             }
