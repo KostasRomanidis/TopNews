@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.TabRowDefaults.Divider
 import androidx.compose.material.Text
@@ -12,6 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -24,6 +26,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.kroman.presentation.models.ArticleItem
 import com.kroman.presentation.models.SourceItem
+import com.kroman.presentation.theme.Grey200
 import com.kroman.presentation.theme.Grey600
 import com.kroman.presentation.theme.Grey800
 
@@ -31,7 +34,7 @@ import com.kroman.presentation.theme.Grey800
 fun HomeScreen(homeViewModel: HomeViewModel) {
     homeViewModel.getTopHeadlines()
     val uiState by homeViewModel.uiState.collectAsState()
-    when(uiState) {
+    when (uiState) {
         is HomeUIState.HasArticles -> ArticleList((uiState as HomeUIState.HasArticles).articles!!)
         is HomeUIState.NoArticles -> LoadingArticlesScreen()
     }
@@ -41,22 +44,19 @@ fun HomeScreen(homeViewModel: HomeViewModel) {
 fun ArticleList(articles: List<ArticleItem>) {
     LazyColumn(
         modifier = Modifier
+            .background(Grey200)
             .fillMaxWidth()
-            .padding(top = 4.dp, bottom = 4.dp)
+            .padding(5.dp)
             .wrapContentHeight(),
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         itemsIndexed(articles) { index, article ->
             if (index == 0) {
                 FirstArticleCard(article = article)
-                Divider(color = Grey600)
             } else {
                 ArticleCard(article = article) {
                 }
-                Divider(
-                    color = Grey600,
-                    modifier = Modifier.padding(start = 5.dp, end = 5.dp)
-                )
+
             }
         }
     }
@@ -64,70 +64,78 @@ fun ArticleList(articles: List<ArticleItem>) {
 
 @Composable
 fun ArticleCard(article: ArticleItem, onClick: () -> Unit) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.End,
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(Color.White)
-            .padding(top = 5.dp, bottom = 5.dp)
-            .height(66.dp)
+    Card(
+        modifier = Modifier.background(Color.White).shadow(4.dp)
     ) {
-        Spacer(modifier = Modifier.width(5.dp))
-        AsyncImage(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data(article.image)
-                .crossfade(true)
-                .build(),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.End,
             modifier = Modifier
-                .height(64.dp)
-                .width(64.dp)
-        )
-        Spacer(modifier = Modifier.width(5.dp))
-        Column {
-            Text(
-                text = article.title,
-                textAlign = TextAlign.Start,
-                fontSize = 16.sp,
-                color = Grey800,
-                fontWeight = FontWeight.Normal,
+                .fillMaxWidth()
+                .background(Color.White)
+                .padding(top = 5.dp, bottom = 5.dp)
+                .height(66.dp)
+        ) {
+            Spacer(modifier = Modifier.width(5.dp))
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(article.image)
+                    .crossfade(true)
+                    .build(),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .padding(bottom = 5.dp)
+                    .height(64.dp)
+                    .width(64.dp)
             )
+            Spacer(modifier = Modifier.width(5.dp))
+            Column {
+                Text(
+                    text = article.title,
+                    textAlign = TextAlign.Start,
+                    fontSize = 16.sp,
+                    color = Grey800,
+                    fontWeight = FontWeight.Normal,
+                    modifier = Modifier
+                        .padding(bottom = 5.dp)
+                )
+            }
+            Spacer(modifier = Modifier.width(5.dp))
         }
-        Spacer(modifier = Modifier.width(5.dp))
     }
 }
 
 @Composable
 fun FirstArticleCard(article: ArticleItem) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 5.dp, end = 5.dp)
-            .background(Color.White)
+    Card(
+        modifier = Modifier.background(Color.White)
     ) {
-        AsyncImage(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data(article.image)
-                .crossfade(true)
-                .build(),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
+        Column(
             modifier = Modifier
-                .height(150.dp)
-        )
-        Spacer(modifier = Modifier.height(5.dp))
-        Text(
-            text = article.title,
-            textAlign = TextAlign.Start,
-            fontSize = 20.sp,
-            color = Color.Black,
-            fontWeight = FontWeight.Normal,
-            modifier = Modifier.padding(start = 4.dp, end = 4.dp, bottom = 2.dp)
-        )
+                .fillMaxWidth()
+                .padding(start = 5.dp, end = 5.dp)
+                .background(Color.White)
+        ) {
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(article.image)
+                    .crossfade(true)
+                    .build(),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .height(150.dp)
+            )
+            Spacer(modifier = Modifier.height(5.dp))
+            Text(
+                text = article.title,
+                textAlign = TextAlign.Start,
+                fontSize = 20.sp,
+                color = Color.Black,
+                fontWeight = FontWeight.Normal,
+                modifier = Modifier.padding(start = 4.dp, end = 4.dp, bottom = 2.dp)
+            )
+        }
     }
 }
 
