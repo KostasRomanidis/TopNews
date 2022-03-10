@@ -29,7 +29,7 @@ object Versions {
     const val FABRIC = "1.31.2"
     const val FIREBASE_ANALYTICS = "17.2.3"
     const val FIREBASE_CRASHLYTICS = "2.10.1"
-    const val COIL = "1.4.0"
+    const val COIL = "2.0.0-rc01"
 
     // Jetpack Compose
     const val COMPOSE_UI = "1.0.5"

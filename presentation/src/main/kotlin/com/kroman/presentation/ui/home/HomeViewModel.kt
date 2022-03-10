@@ -1,7 +1,5 @@
 package com.kroman.presentation.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kroman.domain.model.Result
@@ -10,6 +8,7 @@ import com.kroman.presentation.models.ArticleItem
 import com.kroman.presentation.models.MapToPresention
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -18,8 +17,16 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val topHeadlinesUseCases: TopHeadlinesUseCases) :
     ViewModel() {
-    private val _newsFeed: MutableLiveData<List<ArticleItem>> = MutableLiveData()
-    val newsFeed: LiveData<List<ArticleItem>> = _newsFeed
+    private val _viewState: MutableStateFlow<HomeViewModelState> =
+        MutableStateFlow(HomeViewModelState(isLoading = true))
+
+    val uiState = _viewState
+        .map { it.mapToUIState() }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.Eagerly,
+            _viewState.value.mapToUIState()
+        )
 
     fun getTopHeadlines() {
         viewModelScope.launch {
@@ -29,13 +36,49 @@ class HomeViewModel @Inject constructor(private val topHeadlinesUseCases: TopHea
                 )) {
                     is Result.Success -> {
                         Timber.d(result.data.toString())
-                        _newsFeed.value = result.data.MapToPresention()
+                        _viewState.update {
+                            it.copy(
+                                isLoading = false,
+                                feed = result.data.MapToPresention()
+                            )
+                        }
                     }
                     is Result.Error -> {
                         Timber.e(result.exception)
+                        _viewState.update {
+                            it.copy(
+                                isLoading = false,
+                                feed = null,
+                                errorMessage = result.exception.message
+                            )
+                        }
                     }
                 }
             }
         }
     }
+
+    fun clickItem() {
+        Timber.d("Item clicked")
+    }
+}
+
+data class HomeViewModelState(
+    val isLoading: Boolean,
+    val feed: List<ArticleItem>? = null,
+    var errorMessage: String? = null
+) {
+    fun mapToUIState(): HomeUIState =
+        if (feed == null) {
+            HomeUIState.NoArticles(
+                isLoading = isLoading,
+                errorMessage = errorMessage
+            )
+        } else {
+            HomeUIState.HasArticles(
+                isLoading = isLoading,
+                articles = feed,
+                errorMessage = errorMessage
+            )
+        }
 }
