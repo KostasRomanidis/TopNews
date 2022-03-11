@@ -24,9 +24,13 @@ class HomeViewModel @Inject constructor(private val topHeadlinesUseCases: TopHea
         .map { it.mapToUIState() }
         .stateIn(
             viewModelScope,
-            SharingStarted.Eagerly,
+            SharingStarted.Lazily,
             _viewState.value.mapToUIState()
         )
+
+    init {
+        getTopHeadlines()
+    }
 
     fun getTopHeadlines() {
         viewModelScope.launch {

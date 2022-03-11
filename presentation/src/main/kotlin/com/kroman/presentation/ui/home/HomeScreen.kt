@@ -32,7 +32,6 @@ import com.kroman.presentation.theme.Grey800
 
 @Composable
 fun HomeScreen(homeViewModel: HomeViewModel) {
-    homeViewModel.getTopHeadlines()
     val uiState by homeViewModel.uiState.collectAsState()
     when (uiState) {
         is HomeUIState.HasArticles -> ArticleList((uiState as HomeUIState.HasArticles).articles!!)
@@ -56,7 +55,6 @@ fun ArticleList(articles: List<ArticleItem>) {
             } else {
                 ArticleCard(article = article) {
                 }
-
             }
         }
     }
@@ -65,7 +63,9 @@ fun ArticleList(articles: List<ArticleItem>) {
 @Composable
 fun ArticleCard(article: ArticleItem, onClick: () -> Unit) {
     Card(
-        modifier = Modifier.background(Color.White).shadow(4.dp)
+        modifier = Modifier
+            .background(Color.White)
+            .shadow(4.dp)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
