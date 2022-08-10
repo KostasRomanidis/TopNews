@@ -141,6 +141,8 @@ dependencies {
 
     // Integration with observables
     implementation(Libs.COMPOSE_LIVE_DATA)
+    // Compose Accompanist SWipe to refresh
+    implementation(Libs.COMPOSE_ACCOMPANIST_SWIPE)
 
     //COil
     implementation(Libs.COIL)

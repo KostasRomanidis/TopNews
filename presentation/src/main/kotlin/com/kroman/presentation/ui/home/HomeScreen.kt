@@ -1,6 +1,7 @@
 package com.kroman.presentation.ui.home
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -8,9 +9,7 @@ import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.TabRowDefaults.Divider
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -24,6 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.kroman.presentation.models.ArticleItem
 import com.kroman.presentation.models.SourceItem
 import com.kroman.presentation.theme.Grey200
@@ -34,7 +35,9 @@ import com.kroman.presentation.theme.Grey800
 fun HomeScreen(homeViewModel: HomeViewModel) {
     val uiState by homeViewModel.uiState.collectAsState()
     when (uiState) {
-        is HomeUIState.HasArticles -> ArticleList((uiState as HomeUIState.HasArticles).articles!!)
+        is HomeUIState.HasArticles -> ArticleList(
+            (uiState as HomeUIState.HasArticles).articles!!
+        )
         is HomeUIState.NoArticles -> LoadingArticlesScreen()
     }
 }
@@ -113,7 +116,7 @@ fun FirstArticleCard(article: ArticleItem) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 5.dp, end = 5.dp)
+                .padding(5.dp)
                 .background(Color.White)
         ) {
             AsyncImage(
@@ -147,7 +150,7 @@ fun LoadingArticlesScreen() {
             .background(Color.White)
             .wrapContentSize(Alignment.Center)
     ) {
-        CircularProgressIndicator()
+        CircularProgressIndicator(color = Grey600)
     }
 }
 

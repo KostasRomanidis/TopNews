@@ -43,7 +43,7 @@ object Versions {
     // Integration with ViewModels
     const val COMPOSE_VIEW_MODEL = "1.0.0-alpha07"
     const val COMPOSE_NAVIGATION = "2.5.0-alpha01"
-    const val ACCOMPANIST = "0.21.4-beta"
+    const val COMPOSE_ACCOMPANIST = "0.24.3-alpha"
 
     // Test Libraries
     const val JUNIT = "4.12"

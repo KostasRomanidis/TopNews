@@ -82,6 +82,8 @@ object Libs {
     // Foundation (Border, Background, Box, Image, Scroll, Shapes, Animation, etc...)
     const val COMPOSE_FOUNDATION = "androidx.compose.foundation:foundation:${Versions.COMPOSE_UI}"
 
+    const val COMPOSE_ACCOMPANIST_SWIPE = "com.google.accompanist:accompanist-swiperefresh:${Versions.COMPOSE_ACCOMPANIST}"
+
     // Integration with observables
     const val COMPOSE_LIVE_DATA = "androidx.compose.runtime:runtime-livedata:${Versions.COMPOSE_UI}"
 
