@@ -5,19 +5,26 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Icon
 import androidx.compose.material.TabRowDefaults.Divider
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.outlined.Bookmark
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,6 +35,7 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.kroman.presentation.models.ArticleItem
 import com.kroman.presentation.models.SourceItem
 import com.kroman.presentation.theme.Grey200
+import com.kroman.presentation.theme.Grey400
 import com.kroman.presentation.theme.Grey600
 import com.kroman.presentation.theme.Grey800
 
@@ -71,13 +79,12 @@ fun ArticleCard(article: ArticleItem, onClick: () -> Unit) {
             .shadow(4.dp)
     ) {
         Row(
-            verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.End,
             modifier = Modifier
                 .fillMaxWidth()
                 .background(Color.White)
-                .padding(top = 5.dp, bottom = 5.dp)
-                .height(66.dp)
+                .padding(top = 5.dp, end = 5.dp)
+                .height(80.dp)
         ) {
             Spacer(modifier = Modifier.width(5.dp))
             AsyncImage(
@@ -88,20 +95,39 @@ fun ArticleCard(article: ArticleItem, onClick: () -> Unit) {
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .height(64.dp)
-                    .width(64.dp)
+                    .height(76.dp)
+                    .width(76.dp)
             )
             Spacer(modifier = Modifier.width(5.dp))
-            Column {
+            Column(verticalArrangement = Arrangement.Top) {
                 Text(
                     text = article.title,
                     textAlign = TextAlign.Start,
                     fontSize = 16.sp,
                     color = Grey800,
-                    fontWeight = FontWeight.Normal,
+                    fontWeight = FontWeight.Bold,
                     modifier = Modifier
-                        .padding(bottom = 5.dp)
+                        .padding(bottom = 5.dp),
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
                 )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = article.publishedAt,
+                        textAlign = TextAlign.Start,
+                        fontSize = 10.sp,
+                        color = Grey400,
+                        fontWeight = FontWeight.Normal,
+                        modifier = Modifier.padding(bottom = 5.dp)
+                    )
+                    Icon(
+                        imageVector = Icons.Outlined.Bookmark,
+                        contentDescription = "Bookmark",
+                    )
+                }
             }
             Spacer(modifier = Modifier.width(5.dp))
         }
@@ -129,15 +155,33 @@ fun FirstArticleCard(article: ArticleItem) {
                 modifier = Modifier
                     .height(150.dp)
             )
-            Spacer(modifier = Modifier.height(5.dp))
+            Spacer(modifier = Modifier.height(10.dp))
             Text(
                 text = article.title,
                 textAlign = TextAlign.Start,
                 fontSize = 20.sp,
                 color = Color.Black,
-                fontWeight = FontWeight.Normal,
-                modifier = Modifier.padding(start = 4.dp, end = 4.dp, bottom = 2.dp)
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(start = 4.dp, end = 4.dp, bottom = 2.dp),
+                maxLines = 2
             )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = article.publishedAt,
+                    textAlign = TextAlign.Start,
+                    fontSize = 10.sp,
+                    color = Grey400,
+                    fontWeight = FontWeight.Normal,
+                    modifier = Modifier.padding(bottom = 5.dp)
+                )
+                Icon(
+                    imageVector = Icons.Outlined.Bookmark,
+                    contentDescription = "Bookmark",
+                )
+            }
         }
     }
 }
