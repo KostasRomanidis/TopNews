@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.kroman.domain.model.Result
 import com.kroman.domain.usecases.TopHeadlinesUseCases
 import com.kroman.presentation.models.ArticleItem
-import com.kroman.presentation.models.MapToPresention
+import com.kroman.presentation.models.mapToPresention
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -43,7 +43,7 @@ class HomeViewModel @Inject constructor(private val topHeadlinesUseCases: TopHea
                         _viewState.update {
                             it.copy(
                                 isLoading = false,
-                                feed = result.data.MapToPresention()
+                                feed = result.data.mapToPresention()
                             )
                         }
                     }

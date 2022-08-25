@@ -2,6 +2,7 @@ package com.kroman.presentation.ui
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Bookmark
+import androidx.compose.material.icons.outlined.Bookmarks
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -64,5 +65,5 @@ class TopNewsNavigationActions(navController: NavHostController) {
 sealed class BottomNavItem(var title: String, var icon: ImageVector, var destination: String) {
     object Home : BottomNavItem("Home", Icons.Outlined.Home, TopNewsDestinations.HOME_ROUTE)
     object Bookmarks :
-        BottomNavItem("Bookmark", Icons.Outlined.Bookmark, TopNewsDestinations.BOOKMARKS_ROUTE)
+        BottomNavItem("Bookmark", Icons.Outlined.Bookmarks, TopNewsDestinations.BOOKMARKS_ROUTE)
 }

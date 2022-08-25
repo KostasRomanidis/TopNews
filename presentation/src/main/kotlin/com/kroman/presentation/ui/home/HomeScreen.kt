@@ -6,14 +6,15 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Icon
+import androidx.compose.material.*
 import androidx.compose.material.TabRowDefaults.Divider
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.Bookmark
+import androidx.compose.material.icons.outlined.BookmarkAdd
+import androidx.compose.material.icons.rounded.Bookmark
+import androidx.compose.material.icons.twotone.Bookmark
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,6 +39,8 @@ import com.kroman.presentation.theme.Grey200
 import com.kroman.presentation.theme.Grey400
 import com.kroman.presentation.theme.Grey600
 import com.kroman.presentation.theme.Grey800
+import com.kroman.presentation.utils.DateUtils
+import timber.log.Timber
 
 @Composable
 fun HomeScreen(homeViewModel: HomeViewModel) {
@@ -56,7 +59,7 @@ fun ArticleList(articles: List<ArticleItem>) {
         modifier = Modifier
             .background(Grey200)
             .fillMaxWidth()
-            .padding(5.dp)
+            .padding(8.dp)
             .wrapContentHeight(),
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
@@ -121,12 +124,14 @@ fun ArticleCard(article: ArticleItem, onClick: () -> Unit) {
                         fontSize = 10.sp,
                         color = Grey400,
                         fontWeight = FontWeight.Normal,
-                        modifier = Modifier.padding(bottom = 5.dp)
+                        modifier = Modifier.padding(bottom = 5.dp, top = 5.dp)
                     )
-                    Icon(
-                        imageVector = Icons.Outlined.Bookmark,
-                        contentDescription = "Bookmark",
-                    )
+                    IconButton(onClick = { /*TODO*/ }) {
+                        Icon(
+                            imageVector = Icons.Outlined.BookmarkAdd,
+                            contentDescription = "Bookmark",
+                        )
+                    }
                 }
             }
             Spacer(modifier = Modifier.width(5.dp))
@@ -175,12 +180,17 @@ fun FirstArticleCard(article: ArticleItem) {
                     fontSize = 10.sp,
                     color = Grey400,
                     fontWeight = FontWeight.Normal,
-                    modifier = Modifier.padding(bottom = 5.dp)
+                    modifier = Modifier.padding(bottom = 5.dp, top = 10.dp)
                 )
-                Icon(
-                    imageVector = Icons.Outlined.Bookmark,
-                    contentDescription = "Bookmark",
-                )
+                IconButton(onClick = {
+                    Timber.d("Bookmarked")
+
+                }) {
+                    Icon(
+                        imageVector = Icons.Outlined.BookmarkAdd,
+                        contentDescription = "Bookmark"
+                    )
+                }
             }
         }
     }
@@ -211,7 +221,8 @@ fun ArticleCardPreview() {
         source = SourceItem(
             name = "The Telegraph",
             url = "https://www.telegraph.co.uk"
-        )
+        ),
+        isBookmarked = false
     )
     ArticleCard(article = article) {
     }
@@ -230,7 +241,8 @@ fun FirstArticleCardPreview() {
         source = SourceItem(
             name = "The Telegraph",
             url = "https://www.telegraph.co.uk"
-        )
+        ),
+        isBookmarked = false
     )
     FirstArticleCard(article = article)
 }

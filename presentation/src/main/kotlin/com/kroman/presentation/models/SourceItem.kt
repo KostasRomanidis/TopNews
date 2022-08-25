@@ -7,7 +7,7 @@ data class SourceItem(
     val url: String
 )
 
-fun Source.MapToPresentation() : SourceItem {
+fun Source.mapToPresentation() : SourceItem {
     return SourceItem(
         this.name,
         this.url
