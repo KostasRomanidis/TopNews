@@ -1,27 +1,19 @@
 package com.kroman.presentation.ui.home
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.material.TabRowDefaults.Divider
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.outlined.Bookmark
 import androidx.compose.material.icons.outlined.BookmarkAdd
-import androidx.compose.material.icons.rounded.Bookmark
-import androidx.compose.material.icons.twotone.Bookmark
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -31,51 +23,47 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.google.accompanist.swiperefresh.SwipeRefresh
-import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.kroman.presentation.models.ArticleItem
 import com.kroman.presentation.models.SourceItem
 import com.kroman.presentation.theme.Grey200
 import com.kroman.presentation.theme.Grey400
 import com.kroman.presentation.theme.Grey600
 import com.kroman.presentation.theme.Grey800
-import com.kroman.presentation.utils.DateUtils
-import timber.log.Timber
 
 @Composable
 fun HomeScreen(homeViewModel: HomeViewModel) {
     val uiState by homeViewModel.uiState.collectAsState()
     when (uiState) {
         is HomeUIState.HasArticles -> ArticleList(
-            (uiState as HomeUIState.HasArticles).articles!!
+            (uiState as HomeUIState.HasArticles).articles!!,
+            addToBookmarks = homeViewModel::addToBookmarks
         )
         is HomeUIState.NoArticles -> LoadingArticlesScreen()
     }
 }
 
 @Composable
-fun ArticleList(articles: List<ArticleItem>) {
+fun ArticleList(articles: List<ArticleItem>, addToBookmarks: (ArticleItem) -> Unit) {
     LazyColumn(
         modifier = Modifier
             .background(Grey200)
             .fillMaxWidth()
             .padding(8.dp)
             .wrapContentHeight(),
-        verticalArrangement = Arrangement.spacedBy(4.dp)
+        verticalArrangement = Arrangement.spacedBy(5.dp)
     ) {
         itemsIndexed(articles) { index, article ->
             if (index == 0) {
-                FirstArticleCard(article = article)
+                FirstArticleCard(article = article, addToBookmarks)
             } else {
-                ArticleCard(article = article) {
-                }
+                ArticleCard(article = article, addToBookmarks)
             }
         }
     }
 }
 
 @Composable
-fun ArticleCard(article: ArticleItem, onClick: () -> Unit) {
+fun ArticleCard(article: ArticleItem, addToBookmarks: (ArticleItem) -> Unit) {
     Card(
         modifier = Modifier
             .background(Color.White)
@@ -110,6 +98,7 @@ fun ArticleCard(article: ArticleItem, onClick: () -> Unit) {
                     color = Grey800,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier
+                        .clickable { }
                         .padding(bottom = 5.dp),
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
@@ -126,7 +115,7 @@ fun ArticleCard(article: ArticleItem, onClick: () -> Unit) {
                         fontWeight = FontWeight.Normal,
                         modifier = Modifier.padding(bottom = 5.dp, top = 5.dp)
                     )
-                    IconButton(onClick = { /*TODO*/ }) {
+                    IconButton(onClick = { addToBookmarks(article) }) {
                         Icon(
                             imageVector = Icons.Outlined.BookmarkAdd,
                             contentDescription = "Bookmark",
@@ -140,7 +129,7 @@ fun ArticleCard(article: ArticleItem, onClick: () -> Unit) {
 }
 
 @Composable
-fun FirstArticleCard(article: ArticleItem) {
+fun FirstArticleCard(article: ArticleItem, addToBookmarks: (ArticleItem) -> Unit) {
     Card(
         modifier = Modifier.background(Color.White)
     ) {
@@ -183,8 +172,7 @@ fun FirstArticleCard(article: ArticleItem) {
                     modifier = Modifier.padding(bottom = 5.dp, top = 10.dp)
                 )
                 IconButton(onClick = {
-                    Timber.d("Bookmarked")
-
+                    addToBookmarks(article)
                 }) {
                     Icon(
                         imageVector = Icons.Outlined.BookmarkAdd,
@@ -244,7 +232,7 @@ fun FirstArticleCardPreview() {
         ),
         isBookmarked = false
     )
-    FirstArticleCard(article = article)
+    FirstArticleCard(article = article) {}
 }
 
 @Preview

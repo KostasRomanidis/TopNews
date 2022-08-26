@@ -32,7 +32,7 @@ class HomeViewModel @Inject constructor(private val topHeadlinesUseCases: TopHea
         getTopHeadlines()
     }
 
-    fun getTopHeadlines() {
+    private fun getTopHeadlines() {
         viewModelScope.launch {
             withContext(Dispatchers.Main) {
                 when (val result = topHeadlinesUseCases.loadLatestArticles(
@@ -62,8 +62,8 @@ class HomeViewModel @Inject constructor(private val topHeadlinesUseCases: TopHea
         }
     }
 
-    fun clickItem() {
-        Timber.d("Item clicked")
+    fun addToBookmarks(articleItem: ArticleItem) {
+        Timber.d("Bookmarked ${articleItem.title}")
     }
 }
 
