@@ -73,16 +73,14 @@ data class HomeViewModelState(
     var errorMessage: String? = null
 ) {
     fun mapToUIState(): HomeUIState =
-        if (feed == null) {
-            HomeUIState.NoArticles(
-                isLoading = isLoading,
-                errorMessage = errorMessage
-            )
-        } else {
+        feed?.let {
             HomeUIState.HasArticles(
                 isLoading = isLoading,
-                articles = feed,
+                articles = it,
                 errorMessage = errorMessage
             )
-        }
+        } ?: HomeUIState.NoArticles(
+            isLoading = isLoading,
+            errorMessage = errorMessage
+        )
 }
