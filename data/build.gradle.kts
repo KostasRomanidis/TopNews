@@ -46,6 +46,7 @@ android {
             java.srcDir("src/androidTest/kotlin")
         }
     }
+    namespace = "com.kroman.presentation.data"
 }
 
 dependencies {

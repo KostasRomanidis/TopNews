@@ -1,6 +1,3 @@
-import com.android.build.api.dsl.Lint
-import com.android.build.api.dsl.LintOptions
-
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -71,6 +68,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.COMPOSE_UI
     }
+    namespace = "com.kroman.presentation"
 
     kapt {
         correctErrorTypes = true
