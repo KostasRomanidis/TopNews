@@ -75,7 +75,7 @@ fun ArticleCard(article: ArticleItem, addToBookmarks: (ArticleItem) -> Unit) {
                 .fillMaxWidth()
                 .background(Color.White)
                 .padding(top = 5.dp, end = 5.dp)
-                .height(80.dp)
+                .height(115.dp)
         ) {
             Spacer(modifier = Modifier.width(5.dp))
             AsyncImage(
@@ -86,8 +86,8 @@ fun ArticleCard(article: ArticleItem, addToBookmarks: (ArticleItem) -> Unit) {
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .height(76.dp)
-                    .width(76.dp)
+                    .height(110.dp)
+                    .width(160.dp)
             )
             Spacer(modifier = Modifier.width(5.dp))
             Column(verticalArrangement = Arrangement.Top) {
@@ -147,7 +147,7 @@ fun FirstArticleCard(article: ArticleItem, addToBookmarks: (ArticleItem) -> Unit
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .height(150.dp)
+                    .height(170.dp)
             )
             Spacer(modifier = Modifier.height(10.dp))
             Text(

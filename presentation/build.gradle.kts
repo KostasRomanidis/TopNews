@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("android.extensions")
     kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
@@ -66,7 +65,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.COMPOSE_UI
+        kotlinCompilerExtensionVersion = Versions.COMPOSE_COMPILER
     }
     namespace = "com.kroman.presentation"
 
@@ -130,7 +129,7 @@ dependencies {
     // Animations
     implementation(Libs.COMPOSE_ANIMATION)
     // Integration with ViewModels
-    implementation(Libs.COMPOSE_VIEWMODEL)
+//    implementation(Libs.COMPOSE_VIEWMODEL)
     // Navigation Component
     implementation(Libs.COMPOSE_NAVIGATION)
 
@@ -141,6 +140,7 @@ dependencies {
     implementation(Libs.COMPOSE_LIVE_DATA)
     // Compose Accompanist SWipe to refresh
     implementation(Libs.COMPOSE_ACCOMPANIST_SWIPE)
+    implementation(Libs.COMPOSE_COMPILER)
 
     //COil
     implementation(Libs.COIL)

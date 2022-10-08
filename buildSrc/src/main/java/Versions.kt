@@ -2,18 +2,18 @@ object Versions {
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1.0.0" // X.Y.Z; X = Major, Y = minor, Z = Patch level
 
-    const val KOTLIN_PLUGIN = "1.5.31"
+    const val KOTLIN_PLUGIN = "1.7.10"
 
-    const val COMPILE_SDK = 31
+    const val COMPILE_SDK = 32
     const val MIN_SDK = 21
-    const val TARGET_SDK = 31
+    const val TARGET_SDK = 32
 
     const val APP_COMPAT = "1.3.1"
     const val CORE_KTX = "1.6.0"
     const val MATERIAL = "1.4.0"
     const val RECYCLERVIEW = "1.2.1"
     const val CONSTRAINT_LAYOUT = "2.1.1"
-    const val HILT = "2.41"
+    const val HILT = "2.42"
     const val RETROFIT = "2.9.0"
     const val OKHTTPLOGGING = "4.9.2"
     const val GSON = "2.8.8"
@@ -32,18 +32,19 @@ object Versions {
     const val COIL = "2.0.0-rc01"
 
     // Jetpack Compose
-    const val COMPOSE_UI = "1.0.5"
+    const val COMPOSE_UI = "1.2.1"
     const val COMPOSE_ACTIVITY  = "1.3.1"
     // Compose Material Design
-    const val COMPOSE_MATERIAL_DESIGN = "1.0.5"
+    const val COMPOSE_MATERIAL_DESIGN = "1.2.1"
     // Animations
-    const val COMPOSE_ANIMATIONS = "1.0.5"
+    const val COMPOSE_ANIMATIONS = "1.2.1"
     // Tooling support (Previews, etc.)
-    const val COMPOSE_UI_TOOLING = "1.0.5"
+    const val COMPOSE_UI_TOOLING = "1.2.1"
     // Integration with ViewModels
-    const val COMPOSE_VIEW_MODEL = "1.0.0-alpha07"
-    const val COMPOSE_NAVIGATION = "2.5.0-alpha01"
+//    const val COMPOSE_VIEW_MODEL = "1.0.0-alpha07"
+    const val COMPOSE_NAVIGATION = "2.5.2"
     const val COMPOSE_ACCOMPANIST = "0.24.3-alpha"
+    const val COMPOSE_COMPILER = "1.3.1"
 
     // Test Libraries
     const val JUNIT = "4.12"

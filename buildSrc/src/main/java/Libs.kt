@@ -75,13 +75,13 @@ object Libs {
     // Animations
     const val COMPOSE_ANIMATION = "androidx.compose.animation:animation:${Versions.COMPOSE_ANIMATIONS}"
     // Integration with ViewModels
-    const val COMPOSE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.COMPOSE_VIEW_MODEL}"
+//    const val COMPOSE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.COMPOSE_VIEW_MODEL}"
     // Navigation Component
     const val COMPOSE_NAVIGATION = "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION}"
 
     // Foundation (Border, Background, Box, Image, Scroll, Shapes, Animation, etc...)
     const val COMPOSE_FOUNDATION = "androidx.compose.foundation:foundation:${Versions.COMPOSE_UI}"
-
+    const val COMPOSE_COMPILER = "androidx.compose.compiler:compiler:${Versions.COMPOSE_COMPILER}"
     const val COMPOSE_ACCOMPANIST_SWIPE = "com.google.accompanist:accompanist-swiperefresh:${Versions.COMPOSE_ACCOMPANIST}"
 
     // Integration with observables
