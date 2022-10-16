@@ -21,7 +21,8 @@ object Libs {
     const val COROUTINES_ANDROID =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
 
-    const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
+    const val MOSHI = "com.squareup.moshi:moshi-kotlin:${Versions.MOSHI}"
+    const val MOSHI_CODEGEN = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.MOSHI}"
     const val LIFECYCLE = "androidx.lifecycle:lifecycle-extensions:${Versions.LIFECYCLE}"
     const val LIFECYLCE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
     const val LIFECYLCE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
@@ -40,7 +41,7 @@ object Libs {
 
     // Network
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
-    const val RETROFIT_CONVERTER = "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT}"
+    const val RETROFIT_MOSHI_CONVERTER = "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
 
     const val OKHTTPLOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTPLOGGING}"
 

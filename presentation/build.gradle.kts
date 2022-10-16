@@ -4,6 +4,7 @@ plugins {
     kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
+    id("com.google.devtools.ksp").version("1.6.10-1.0.4")
 }
 
 android {
@@ -83,7 +84,8 @@ dependencies {
     implementation(Libs.MATERIAL)
     implementation(Libs.CORE_KTX)
     implementation(Libs.CONSTRAINT_LAYOUT)
-    implementation(Libs.GSON)
+    implementation(Libs.MOSHI)
+    implementation(Libs.MOCKIT_KOTLIN)
     implementation(Libs.LIFECYLCE_VIEWMODEL)
     implementation(Libs.LIFECYLCE_LIVEDATA)
     implementation(Libs.LIFECYCLE_VIEWMODEL_SAVEDSTATE)
@@ -101,7 +103,7 @@ dependencies {
 
     // Networking
     implementation(Libs.RETROFIT)
-    implementation(Libs.RETROFIT_CONVERTER)
+    implementation(Libs.RETROFIT_MOSHI_CONVERTER)
     implementation(Libs.OKHTTPLOGGING)
 
     // Room

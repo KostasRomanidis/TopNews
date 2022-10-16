@@ -9,7 +9,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 
-class ArticleRepositoryImpl @Inject constructor(val newsApi: NewsApi) : NewsRepository {
+class ArticleRepositoryImpl @Inject constructor(private val newsApi: NewsApi) : NewsRepository {
     override suspend fun getTopHeadlines(
         lang: String
     ): Result<List<Article>> {

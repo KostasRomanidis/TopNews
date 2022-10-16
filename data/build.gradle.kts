@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
+    id("com.google.devtools.ksp") version ("1.6.10-1.0.4")
 }
 
 android {
@@ -52,11 +53,11 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libs.KOTLIN_PLUGIN)
-    implementation(Libs.APP_COMPAT)
     implementation(Libs.CORE_KTX)
-    implementation(Libs.GSON)
+    implementation(Libs.MOSHI)
     implementation(Libs.RETROFIT)
-    implementation(Libs.RETROFIT_CONVERTER)
+    implementation(Libs.RETROFIT_MOSHI_CONVERTER)
+    ksp(Libs.MOSHI_CODEGEN)
     implementation(Libs.COROUTINES_CORE)
     implementation(Libs.COROUTINES_ANDROID)
     implementation(Libs.TIMBER)
