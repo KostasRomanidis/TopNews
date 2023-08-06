@@ -24,11 +24,14 @@ object Libs {
     const val MOSHI = "com.squareup.moshi:moshi-kotlin:${Versions.MOSHI}"
     const val MOSHI_CODEGEN = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.MOSHI}"
     const val LIFECYCLE = "androidx.lifecycle:lifecycle-extensions:${Versions.LIFECYCLE}"
-    const val LIFECYLCE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
+    const val LIFECYLCE_VIEWMODEL =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
     const val LIFECYLCE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
-    const val LIFECYCLE_VIEWMODEL_SAVEDSTATE = "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.LIFECYCLE}"
+    const val LIFECYCLE_VIEWMODEL_SAVEDSTATE =
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.LIFECYCLE}"
     const val LIFECYCLE_KAPT = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
-    const val LIFECYCLE_LIVE_DATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
+    const val LIFECYCLE_LIVE_DATA =
+        "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
 
     // Dependency Injection
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
@@ -41,7 +44,8 @@ object Libs {
 
     // Network
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
-    const val RETROFIT_MOSHI_CONVERTER = "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
+    const val RETROFIT_MOSHI_CONVERTER =
+        "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
 
     const val OKHTTPLOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTPLOGGING}"
 
@@ -55,35 +59,36 @@ object Libs {
     // Coil-Compose
     const val COIL = "io.coil-kt:coil-compose:${Versions.COIL}"
 
-
-    // Firebase
-    const val GOOGLE_PLAY_SERVICES = "com.google.gms:google-services:${Versions.GOOGLE_PLAY_SERVICES}"
-    const val FABRIC = "io.fabric.tools:gradle:${Versions.FABRIC}"
-    const val FIREBASE_ANALYTICS =
-        "com.google.firebase:firebase-analytics:${Versions.FIREBASE_ANALYTICS}"
-    const val FIREBASE_CRASHLYTICS =
-        "com.crashlytics.sdk.android:crashlytics:${Versions.FIREBASE_CRASHLYTICS}"
-
     // Jetpack Compose
     const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE_UI}"
+
     // Tooling Support (Previews etc...)
     const val COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE_UI_TOOLING}"
     const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:${Versions.COMPOSE_ACTIVITY}"
+
     // Compose Material Design
-    const val COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.COMPOSE_MATERIAL_DESIGN}"
-    const val COMPOSE_MATERIAL_ICONS = "androidx.compose.material:material-icons-core:${Versions.COMPOSE_MATERIAL_DESIGN}"
-    const val COMPOSE_MATERIAL_ICONS_EXT = "androidx.compose.material:material-icons-extended:${Versions.COMPOSE_MATERIAL_DESIGN}"
+    const val COMPOSE_MATERIAL =
+        "androidx.compose.material:material:${Versions.COMPOSE_MATERIAL_DESIGN}"
+    const val COMPOSE_MATERIAL_ICONS =
+        "androidx.compose.material:material-icons-core:${Versions.COMPOSE_MATERIAL_DESIGN}"
+    const val COMPOSE_MATERIAL_ICONS_EXT =
+        "androidx.compose.material:material-icons-extended:${Versions.COMPOSE_MATERIAL_DESIGN}"
+
     // Animations
-    const val COMPOSE_ANIMATION = "androidx.compose.animation:animation:${Versions.COMPOSE_ANIMATIONS}"
+    const val COMPOSE_ANIMATION =
+        "androidx.compose.animation:animation:${Versions.COMPOSE_ANIMATIONS}"
+
     // Integration with ViewModels
 //    const val COMPOSE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.COMPOSE_VIEW_MODEL}"
     // Navigation Component
-    const val COMPOSE_NAVIGATION = "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION}"
+    const val COMPOSE_NAVIGATION =
+        "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION}"
 
     // Foundation (Border, Background, Box, Image, Scroll, Shapes, Animation, etc...)
     const val COMPOSE_FOUNDATION = "androidx.compose.foundation:foundation:${Versions.COMPOSE_UI}"
     const val COMPOSE_COMPILER = "androidx.compose.compiler:compiler:${Versions.COMPOSE_COMPILER}"
-    const val COMPOSE_ACCOMPANIST_SWIPE = "com.google.accompanist:accompanist-swiperefresh:${Versions.COMPOSE_ACCOMPANIST}"
+    const val COMPOSE_ACCOMPANIST_SWIPE =
+        "com.google.accompanist:accompanist-swiperefresh:${Versions.COMPOSE_ACCOMPANIST}"
 
     // Integration with observables
     const val COMPOSE_LIVE_DATA = "androidx.compose.runtime:runtime-livedata:${Versions.COMPOSE_UI}"
@@ -93,6 +98,7 @@ object Libs {
     const val RUNNER = "androidx.test:runner:${Versions.RUNNER}"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_CORE}"
     const val ROOM_TEST = "androidx.room:room-testing:${Versions.ROOM}"
-    const val MOCKIT_KOTLIN = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO_KOTLIN}"
+    const val MOCKIT_KOTLIN =
+        "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO_KOTLIN}"
     const val UI_TEST_COMPOSE = "androidx.compose.ui:ui-test-junit4:${Versions.COMPOSE_UI_TEST}"
 }

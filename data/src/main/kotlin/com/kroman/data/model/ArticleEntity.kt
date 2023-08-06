@@ -1,7 +1,9 @@
 package com.kroman.data.model
 
 import com.kroman.domain.model.Article
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class ArticleEntity(
     val title: String,
     val description: String,

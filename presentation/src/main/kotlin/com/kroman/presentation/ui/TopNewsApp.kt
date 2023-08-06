@@ -26,19 +26,15 @@ fun TopNewsApp() {
 
         val tabs = remember {
             listOf(
-                BottomNavItem.Home,
-                BottomNavItem.Bookmarks
+                BottomNavItem.Home, BottomNavItem.Bookmarks
             )
         }
 
-        Scaffold(
-            topBar = {
-                TopNewAppBar(navController = navController)
-            },
-            bottomBar = {
-                TopNewsBottomBar(navController = navController, tabs = tabs)
-            }
-        ) { innerPadding ->
+        Scaffold(topBar = {
+            TopNewAppBar(navController = navController)
+        }, bottomBar = {
+            TopNewsBottomBar(navController = navController, tabs = tabs)
+        }) { innerPadding ->
             Box(modifier = Modifier.padding(innerPadding)) {
                 NavigationGraph(navController = navController)
             }

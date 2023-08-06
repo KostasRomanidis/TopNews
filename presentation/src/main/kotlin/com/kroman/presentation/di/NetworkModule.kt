@@ -9,9 +9,11 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -34,8 +36,7 @@ object NetworkModule {
                 originalHttpUrl.newBuilder().addQueryParameter("token", BuildConfig.GNEWS_API_KEY)
                     .build()
             request.url(url)
-            val response = chain.proceed(request.build())
-            return@addInterceptor response
+            chain.proceed(request.build())
         }
         clientBuilder.readTimeout(90, TimeUnit.SECONDS)
         clientBuilder.writeTimeout(90, TimeUnit.SECONDS)
@@ -46,12 +47,18 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun retrofitClient(httpClient: OkHttpClient): Retrofit =
-        Retrofit.Builder()
+    fun retrofitClient(httpClient: OkHttpClient): Retrofit {
+        val moshi = Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+
+        return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(httpClient)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
+    }
+
 
     @Provides
     @Singleton
